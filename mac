@@ -138,7 +138,7 @@ export CC=gcc-4.2
 RUBY_VERSION="2.1.1"
 
 fancy_echo "Installing Ruby $RUBY_VERSION ..."
-  rbenv install $RUBY_VERSION
+  #rbenv install $RUBY_VERSION
 
 fancy_echo "Setting $RUBY_VERSION as global default Ruby ..."
   rbenv global $RUBY_VERSION
@@ -172,4 +172,3 @@ fancy_echo "Installing rcm, to manage your dotfiles ..."
 fancy_echo "Installing your personal additions from ~/.laptop.local ..."
   [[ -f ~/.laptop.local ]] && source ~/.laptop.local
 ### end common-components/personal-additions
-
