@@ -96,6 +96,9 @@ fancy_echo "Installing htop, a cool top program"
 
 fancy_echo "Starting MySQL ..."
   brew services restart mysql
+
+fancy_echo "Starting Redis ..."
+  brew services restart redis
 ### end mac-components/nebulab-start-services
 
 fancy_echo "Installing rbenv, to change Ruby versions ..."
@@ -135,7 +138,7 @@ export CC=gcc-4.2
 RUBY_VERSION="2.1.1"
 
 fancy_echo "Installing Ruby $RUBY_VERSION ..."
-  #rbenv install $RUBY_VERSION
+  rbenv install $RUBY_VERSION
 
 fancy_echo "Setting $RUBY_VERSION as global default Ruby ..."
   rbenv global $RUBY_VERSION
