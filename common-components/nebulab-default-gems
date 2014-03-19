@@ -1,0 +1,2 @@
+fancy_echo "Installing Pulsar, a tool to deploy with Capistrano ..."
+  gem install pulsar --no-document

@@ -136,7 +136,7 @@ fi
 RUBY_VERSION="2.1.1"
 
 fancy_echo "Installing Ruby $RUBY_VERSION ..."
-  rbenv install $RUBY_VERSION
+  #rbenv install $RUBY_VERSION
 
 fancy_echo "Setting $RUBY_VERSION as global default Ruby ..."
   rbenv global $RUBY_VERSION

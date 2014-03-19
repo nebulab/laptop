@@ -60,8 +60,8 @@ fancy_echo "Updating Homebrew formulas ..."
 brew update
 ### end mac-components/homebrew
 
-fancy_echo "Installing Postgres, a good open source relational database ..."
-  brew install postgres --no-python
+fancy_echo "Installing MySQL, a \"good\" open source relational database ..."
+  brew install mysql
 
 fancy_echo "Installing Redis, a good key-value database ..."
   brew install redis
@@ -84,16 +84,19 @@ fancy_echo "Installing reattach-to-user-namespace, for copy-paste and RubyMotion
 fancy_echo "Installing ImageMagick, to crop and resize images ..."
   brew install imagemagick
 
-fancy_echo "Installing QT, used by Capybara Webkit for headless Javascript integration testing ..."
-  brew install qt
+fancy_echo "Installing PhantomJS, used by Capybara Webkit for headless Javascript integration testing ..."
+  brew install phantomjs
 
 fancy_echo "Installing watch, to execute a program periodically and show the output ..."
   brew install watch
-### end mac-components/packages
 
-fancy_echo "Starting Postgres ..."
-  brew services start postgres
-### end mac-components/start-services
+fancy_echo "Installing htop, a cool top program"
+  brew install htop
+### end mac-components/nebulab-packages
+
+fancy_echo "Starting MySQL ..."
+  brew services restart mysql
+### end mac-components/nebulab-start-services
 
 fancy_echo "Installing rbenv, to change Ruby versions ..."
   brew install rbenv
@@ -115,6 +118,10 @@ fancy_echo "Installing ruby-build, to install Rubies ..."
   brew install ruby-build
 ### end mac-components/rbenv
 
+fancy_echo "Installing Node.js ..."
+  brew install nodejs
+### end mac-components/node
+
 fancy_echo "Installing GNU Compiler Collection, a necessary prerequisite to installing Ruby ..."
   brew tap homebrew/dupes
   brew install apple-gcc42
@@ -128,7 +135,7 @@ export CC=gcc-4.2
 RUBY_VERSION="2.1.1"
 
 fancy_echo "Installing Ruby $RUBY_VERSION ..."
-  rbenv install $RUBY_VERSION
+  #rbenv install $RUBY_VERSION
 
 fancy_echo "Setting $RUBY_VERSION as global default Ruby ..."
   rbenv global $RUBY_VERSION
@@ -146,16 +153,9 @@ fancy_echo "Configuring Bundler for faster, parallel gem installation ..."
   bundle config --global jobs $((number_of_cores - 1))
 ### end mac-components/bundler
 
-fancy_echo "Installing Suspenders, thoughtbot's Rails template ..."
-  gem install suspenders --no-document
-### end common-components/default-gems
-
-fancy_echo "Installing Heroku CLI client ..."
-  brew install heroku-toolbelt
-
-fancy_echo "Installing the heroku-config plugin to pull config variables locally to be used as ENV variables ..."
-  heroku plugins:install git://github.com/ddollar/heroku-config.git
-### end mac-components/heroku
+fancy_echo "Installing Pulsar, a tool to deploy with Capistrano ..."
+  gem install pulsar --no-document
+### end common-components/nebulab-default-gems
 
 fancy_echo "Installing GitHub CLI client ..."
   brew install hub
