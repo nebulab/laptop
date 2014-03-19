@@ -1,2 +1,5 @@
 fancy_echo "Starting MySQL ..."
   brew services restart mysql
+
+fancy_echo "Starting Redis ..."
+  brew services restart redis
