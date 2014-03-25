@@ -30,3 +30,6 @@ fancy_echo "Installing watch, to execute a program periodically and show the out
 
 fancy_echo "Installing htop, a cool top program"
   brew install htop
+
+fancy_echo "Installing wget, to fetch stuff from the web"
+  brew install wget

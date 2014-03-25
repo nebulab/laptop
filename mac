@@ -92,6 +92,9 @@ fancy_echo "Installing watch, to execute a program periodically and show the out
 
 fancy_echo "Installing htop, a cool top program"
   brew install htop
+
+fancy_echo "Installing wget, to fetch stuff from the web"
+  brew install wget
 ### end mac-components/nebulab-packages
 
 fancy_echo "Starting MySQL ..."
@@ -159,6 +162,13 @@ fancy_echo "Configuring Bundler for faster, parallel gem installation ..."
 fancy_echo "Installing Pulsar, a tool to deploy with Capistrano ..."
   gem install pulsar --no-document
 ### end common-components/nebulab-default-gems
+
+fancy_echo "Installing Heroku CLI client ..."
+  brew install heroku-toolbelt
+
+fancy_echo "Installing the heroku-config plugin to pull config variables locally to be used as ENV variables ..."
+  heroku plugins:install git://github.com/ddollar/heroku-config.git
+### end mac-components/heroku
 
 fancy_echo "Installing GitHub CLI client ..."
   brew install hub
