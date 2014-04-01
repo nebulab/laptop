@@ -57,7 +57,11 @@ else
 fi
 
 fancy_echo "Updating Homebrew formulas ..."
-brew update
+  brew update
+
+fancy_echo "Installing Cask to manage OSX applications ..."
+  brew install phinze/cask/brew-cask
+
 ### end mac-components/homebrew
 
 fancy_echo "Installing MySQL, a \"good\" open source relational database ..."
@@ -140,8 +144,10 @@ export CC=gcc-4.2
 
 RUBY_VERSION="2.1.1"
 
-fancy_echo "Installing Ruby $RUBY_VERSION ..."
-  rbenv install $RUBY_VERSION
+if ! rbenv versions | grep -q $RUBY_VERSION; then
+  fancy_echo "Installing Ruby $RUBY_VERSION ..."
+    rbenv install $RUBY_VERSION
+fi
 
 fancy_echo "Setting $RUBY_VERSION as global default Ruby ..."
   rbenv global $RUBY_VERSION
@@ -178,6 +184,46 @@ fancy_echo "Installing rcm, to manage your dotfiles ..."
   brew tap thoughtbot/formulae
   brew install rcm
 ### end mac-components/rcm
+
+fancy_echo "Installing Caffeine, a tool to prevent your Mac from sleeping ..."
+  brew cask install caffeine
+
+fancy_echo "Installing Chrome ..."
+  brew cask install google-chrome
+
+fancy_echo "Installing Firefox ..."
+  brew cask install firefox
+
+fancy_echo "Installig f.lux, to dim your display based on day/night hours ..."
+  brew cask install flux
+
+fancy_echo "Installing Magican, to keep your Mac clean ..."
+  brew cask install magican
+
+fancy_echo "Installing Skype, to talk to the world ..."
+  brew cask install skype
+
+fancy_echo "Installing Google Hangouts, to talk to your friends ..."
+  brew cask install google-hangouts
+
+fancy_echo "Installing Transmission, a bittorrent client ..."
+  brew cask install transmission
+
+fancy_echo "Installing The Unarchiver, a tool to extrac files ..."
+  brew cask install the-unarchiver
+
+fancy_echo "Installing iTerm2, one of the best terminal emulators for Mac ..."
+  brew cask install iterm2
+
+fancy_echo "Installing HipChat, a chat client ..."
+  brew cask install hipchat
+
+fancy_echo "Installing Dropbox, to have your files always in the cloud ..."
+  brew cask install dropbox
+
+fancy_echo "Installing Google Drive, a Dropbox clone ..."
+  brew cask install google-drive
+### end mac-components/nebulab-desktop-apps
 
 fancy_echo "Installing your personal additions from ~/.laptop.local ..."
   [[ -f ~/.laptop.local ]] && source ~/.laptop.local
