@@ -16,3 +16,6 @@ fancy_echo "Installing rbenv-gem-rehash so the shell automatically picks up bina
 
 fancy_echo "Installing ruby-build, to install Rubies ..."
   brew install ruby-build
+
+fancy_echo "Installing rbenv-default-gems, to automatically install gems every time you install a new version of ruby ..."
+  brew install rbenv-default-gems
