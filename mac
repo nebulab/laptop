@@ -60,7 +60,11 @@ fancy_echo "Updating Homebrew formulas ..."
   brew update
 
 fancy_echo "Installing Cask to manage OSX applications ..."
-  brew install caskroom/cask/brew-cask
+  if brew list -1 | grep -q "^brew-cask$"; then
+    fancy_echo "Package 'brew-cask' is installed"
+  else
+    brew install caskroom/cask/brew-cask
+  fi
 
 ### end mac-components/homebrew
 
@@ -139,16 +143,12 @@ fancy_echo "Installing rbenv-default-gems, to automatically install gems every t
 
 fancy_echo "Creating ~/.rbenv/default-gems, to automatically install default gems every time you install a new version of ruby ..."
   touch ~/.rbenv/default-gems
-  for gem in bundler pulsar; do
+  for gem in bundler pulsar invoker; do
     if ! grep -Fxq "$gem" ~/.rbenv/default-gems; then
       echo "$gem" >> ~/.rbenv/default-gems
     fi
   done
 ### end common-components/default-gems
-
-fancy_echo "Installing Node.js ..."
-  brew install nodejs
-### end mac-components/node
 
 fancy_echo "Installing GNU Compiler Collection, a necessary prerequisite to installing Ruby ..."
   brew tap homebrew/dupes
@@ -183,6 +183,15 @@ fancy_echo "Configuring Bundler for faster, parallel gem installation ..."
   bundle config --global jobs $((number_of_cores - 1))
 ### end mac-components/bundler
 
+fancy_echo "Creating ~/.rbenv/default-gems, to automatically install default gems every time you install a new version of ruby ..."
+  touch ~/.rbenv/default-gems
+  for gem in bundler pulsar invoker; do
+    if ! grep -Fxq "$gem" ~/.rbenv/default-gems; then
+      echo "$gem" >> ~/.rbenv/default-gems
+    fi
+  done
+### end common-components/default-gems
+
 fancy_echo "Installing Heroku CLI client ..."
   brew install heroku-toolbelt
 
@@ -211,17 +220,11 @@ fancy_echo "Installing Firefox ..."
 fancy_echo "Installig f.lux, to dim your display based on day/night hours ..."
   brew cask install flux
 
-fancy_echo "Installing Magican, to keep your Mac clean ..."
-  brew cask install magican
-
 fancy_echo "Installing Skype, to talk to the world ..."
   brew cask install skype
 
 fancy_echo "Installing Google Hangouts, to talk to your friends ..."
   brew cask install google-hangouts
-
-fancy_echo "Installing Transmission, a bittorrent client ..."
-  brew cask install transmission
 
 fancy_echo "Installing The Unarchiver, a tool to extrac files ..."
   brew cask install the-unarchiver
@@ -232,12 +235,7 @@ fancy_echo "Installing iTerm2, one of the best terminal emulators for Mac ..."
 fancy_echo "Installing HipChat, a chat client ..."
   brew cask install hipchat
 
-fancy_echo "Installing Dropbox, to have your files always in the cloud ..."
-  brew cask install dropbox
-
-fancy_echo "Installing Google Drive, a Dropbox clone ..."
-  brew cask install google-drive
-### end mac-components/nebulab-desktop-apps
+### end mac-components/desktop-apps
 
 fancy_echo "Installing your personal additions from ~/.laptop.local ..."
   if [ -f ~/.laptop.local  ]; then
