@@ -1,4 +1,8 @@
-for pkg in postgres mysql redis the_silver_searcher vim ctags tmux reattach-to-user-namespace imagemagick phantomjs watch htop-osx wget node; do
+pkgs="
+  postgresql mysql redis the_silver_searcher vim ctags tmux
+  reattach-to-user-namespace imagemagick phantomjs watch htop-osx wget node
+"
+for pkg in $pkgs; do
   if brew list -1 | grep -q "^${pkg}\$"; then
     fancy_echo "Package '$pkg' is installed"
   else
