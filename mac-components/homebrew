@@ -16,5 +16,9 @@ fancy_echo "Updating Homebrew formulas ..."
   brew update
 
 fancy_echo "Installing Cask to manage OSX applications ..."
-  brew install caskroom/cask/brew-cask
+  if brew list -1 | grep -q "^brew-cask$"; then
+    fancy_echo "Package 'brew-cask' is installed"
+  else
+    brew install caskroom/cask/brew-cask
+  fi
 
