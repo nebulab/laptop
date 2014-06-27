@@ -146,9 +146,6 @@ fancy_echo "Setting $RUBY_VERSION as global default Ruby ..."
 
 fancy_echo "Updating to latest Rubygems version ..."
   gem update --system
-
-fancy_echo "Installing Bundler to install project-specific Ruby gems ..."
-  gem install bundler --no-document --pre
 ### end common-components/ruby-environment
 
 fancy_echo "Configuring Bundler for faster, parallel gem installation ..."
@@ -156,8 +153,13 @@ fancy_echo "Configuring Bundler for faster, parallel gem installation ..."
   bundle config --global jobs $((number_of_cores - 1))
 ### end linux-components/bundler
 
-fancy_echo "Installing Suspenders, thoughtbot's Rails template ..."
-  gem install suspenders --no-document
+fancy_echo "Creating ~/.rbenv/default-gems, to automatically install default gems every time you install a new version of ruby ..."
+  touch ~/.rbenv/default-gems
+  for gem in bundler pulsar; do
+    if ! grep -Fxq "$gem" ~/.rbenv/default-gems; then
+      echo "$gem" >> ~/.rbenv/default-gems
+    fi
+  done
 ### end common-components/default-gems
 
 fancy_echo "Installing Heroku CLI client ..."
