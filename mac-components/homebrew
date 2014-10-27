@@ -21,4 +21,3 @@ fancy_echo "Installing Cask to manage OSX applications ..."
   else
     brew install caskroom/cask/brew-cask
   fi
-
