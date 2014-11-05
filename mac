@@ -44,9 +44,7 @@ fi
 
 if ! which brew &>/dev/null; then
   fancy_echo "Installing Homebrew, a good OS X package manager ..."
-
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    ###ruby <(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)
 
   if ! grep -qs "recommended by brew doctor" ~/.zshrc; then
     fancy_echo "Put Homebrew location earlier in PATH ..."
@@ -104,20 +102,14 @@ fancy_echo "Installing wget, to fetch stuff from the web"
 ### end mac-components/nebulab-packages
 
 fancy_echo "Starting MySQL ..."
-
-  ln -sfv /usr/local/opt/mysql/*plist ~/Library/LaunchAgents
-  launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist 
-  
-### brew 'services' command deprecated, launchctl is the standard command to load services
-###brew services restart mysql
+	ln -sfv /usr/local/opt/mysql/*plist ~/Library/LaunchAgents
+ 	launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist 
 
 fancy_echo "Starting Redis ..."
+	ln -sfv /usr/local/opt/mysql/*plist ~/Library/LaunchAgents
+ 	launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
 
-  ln -sfv /usr/local/opt/redis/*plist ~/Library/LaunchAgents
-  launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist 
-
-### brew 'services' command deprecated, launchctl is the standard command to load services
-##  brew services restart redis
+### end mac-components/nebulab-start-services
 
 fancy_echo "Installing rbenv, to change Ruby versions ..."
   brew install rbenv
@@ -177,7 +169,7 @@ fancy_echo "Setting $RUBY_VERSION as global default Ruby ..."
   rbenv rehash
 
 fancy_echo "Updating to latest Rubygems version ..."
- gem update --system
+  gem update --system
 ### end common-components/ruby-environment
 
 fancy_echo "Installing bundler ..."
@@ -244,9 +236,9 @@ fancy_echo "Installing Google Drive, a Dropbox clone ..."
   brew cask install google-drive
 ### end mac-components/nebulab-desktop-apps
 
-
-if [ -f ~/.laptop.local  ]; then
-   fancy_echo "Installing your personal additions from ~/.laptop.local ..."
-   source ~/.laptop.local
-fi
+fancy_echo "Installing your personal additions from ~/.laptop.local ..."
+	if [ -f ~/.laptop.local  ]; then
+	   fancy_echo "Installing your personal additions from ~/.laptop.local ..."
+	   source ~/.laptop.local
+	fi### end common-components/personal-additions
 

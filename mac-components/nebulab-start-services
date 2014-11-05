@@ -1,5 +1,8 @@
 fancy_echo "Starting MySQL ..."
-  brew services restart mysql
+	ln -sfv /usr/local/opt/mysql/*plist ~/Library/LaunchAgents
+ 	launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist 
 
 fancy_echo "Starting Redis ..."
-  brew services restart redis
+	ln -sfv /usr/local/opt/mysql/*plist ~/Library/LaunchAgents
+ 	launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
+

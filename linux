@@ -181,6 +181,8 @@ fancy_echo "Installing rcm, to manage your dotfiles ..."
 ### end linux-components/rcm
 
 fancy_echo "Installing your personal additions from ~/.laptop.local ..."
-  [[ -f ~/.laptop.local ]] && source ~/.laptop.local
-### end common-components/personal-additions
+	if [ -f ~/.laptop.local  ]; then
+	   fancy_echo "Installing your personal additions from ~/.laptop.local ..."
+	   source ~/.laptop.local
+	fi### end common-components/personal-additions
 
