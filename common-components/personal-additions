@@ -1,5 +1,5 @@
 fancy_echo "Installing your personal additions from ~/.laptop.local ..."
-	if [ -f ~/.laptop.local  ]; then
-	   fancy_echo "Installing your personal additions from ~/.laptop.local ..."
-	   source ~/.laptop.local
-	fi
+  if [ -f ~/.laptop.local  ]; then
+    fancy_echo "Installing your personal additions from ~/.laptop.local ..."
+    source ~/.laptop.local
+  fi

@@ -102,12 +102,12 @@ fancy_echo "Installing wget, to fetch stuff from the web"
 ### end mac-components/nebulab-packages
 
 fancy_echo "Starting MySQL ..."
-	ln -sfv /usr/local/opt/mysql/*plist ~/Library/LaunchAgents
- 	launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist 
+  ln -sfv /usr/local/opt/mysql/*plist ~/Library/LaunchAgents
+  launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist 
 
 fancy_echo "Starting Redis ..."
-	ln -sfv /usr/local/opt/mysql/*plist ~/Library/LaunchAgents
- 	launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
+  ln -sfv /usr/local/opt/mysql/*plist ~/Library/LaunchAgents
+  launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
 
 ### end mac-components/nebulab-start-services
 
@@ -237,8 +237,9 @@ fancy_echo "Installing Google Drive, a Dropbox clone ..."
 ### end mac-components/nebulab-desktop-apps
 
 fancy_echo "Installing your personal additions from ~/.laptop.local ..."
-	if [ -f ~/.laptop.local  ]; then
-	   fancy_echo "Installing your personal additions from ~/.laptop.local ..."
-	   source ~/.laptop.local
-	fi### end common-components/personal-additions
+  if [ -f ~/.laptop.local  ]; then
+    fancy_echo "Installing your personal additions from ~/.laptop.local ..."
+    source ~/.laptop.local
+  fi
+### end common-components/personal-additions
 
