@@ -22,6 +22,9 @@ fancy_echo "Installing reattach-to-user-namespace, for copy-paste and RubyMotion
 fancy_echo "Installing ImageMagick, to crop and resize images ..."
   brew install imagemagick
 
+fancy_echo "Installing GhostsScript, to support pdf generation ..."
+  brew install ghostscript
+
 fancy_echo "Installing PhantomJS, used by Capybara Webkit for headless Javascript integration testing ..."
   brew install phantomjs
 
