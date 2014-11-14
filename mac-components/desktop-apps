@@ -7,9 +7,6 @@ fancy_echo "Installing Chrome ..."
 fancy_echo "Installing Firefox ..."
   brew cask install firefox
 
-fancy_echo "Installig f.lux, to dim your display based on day/night hours ..."
-  brew cask install flux
-
 fancy_echo "Installing Skype, to talk to the world ..."
   brew cask install skype
 
