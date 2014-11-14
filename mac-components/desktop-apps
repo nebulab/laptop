@@ -19,6 +19,5 @@ fancy_echo "Installing The Unarchiver, a tool to extrac files ..."
 fancy_echo "Installing iTerm2, one of the best terminal emulators for Mac ..."
   brew cask install iterm2
 
-fancy_echo "Installing HipChat, a chat client ..."
-  brew cask install hipchat
-
+fancy_echo "Installing Slack, a chat client ..."
+  brew cask install slack
