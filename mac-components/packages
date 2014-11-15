@@ -1,12 +1,7 @@
 pkgs="
-  postgresql mysql redis the_silver_searcher vim ctags tmux
+  postgresql mysql redis the_silver_searcher vim ctags tmux ghostscript
   reattach-to-user-namespace imagemagick phantomjs watch htop-osx wget node
 "
 for pkg in $pkgs; do
-  if brew list -1 | grep -q "^${pkg}\$"; then
-    fancy_echo "Package '$pkg' is installed"
-  else
-    fancy_echo "Installing '$pkg' ..."
-    brew install $pkg
-  fi
+  brew_install $pkg
 done
