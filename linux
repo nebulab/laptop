@@ -30,6 +30,15 @@ fi
 fancy_echo() {
   printf "\n%b\n" "$1"
 }
+
+brew_install() {
+  if brew list -1 | grep -q "^${1}\$"; then
+    fancy_echo "Package '$1' is installed"
+  else
+    fancy_echo "Installing '$1' ..."
+    brew install $1
+  fi
+}
 ### end common-components/shared-functions
 
 if ! grep -qiE 'precise|quantal|wheezy|raring|jessie|saucy' /etc/os-release; then
@@ -133,7 +142,7 @@ if [[ ! -d "$HOME/.rbenv/plugins/ruby-build" ]]; then
 fi
 ### end linux-components/rbenv
 
-RUBY_VERSION="2.1.1"
+RUBY_VERSION="2.1.5"
 
 if ! rbenv versions | grep -q $RUBY_VERSION; then
   fancy_echo "Installing Ruby $RUBY_VERSION ..."
