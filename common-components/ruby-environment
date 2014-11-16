@@ -1,4 +1,4 @@
-RUBY_VERSION="2.1.1"
+RUBY_VERSION="2.1.5"
 
 if ! rbenv versions | grep -q $RUBY_VERSION; then
   fancy_echo "Installing Ruby $RUBY_VERSION ..."
