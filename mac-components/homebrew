@@ -1,6 +1,6 @@
 if ! which brew &>/dev/null; then
   fancy_echo "Installing Homebrew, a good OS X package manager ..."
-    ruby <(curl -fsS https://raw.githubusercontent.com/Homebrew/homebrew/go/install)
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
   if ! grep -qs "recommended by brew doctor" ~/.zshrc; then
     fancy_echo "Put Homebrew location earlier in PATH ..."
@@ -16,5 +16,8 @@ fancy_echo "Updating Homebrew formulas ..."
   brew update
 
 fancy_echo "Installing Cask to manage OSX applications ..."
-  brew install caskroom/cask/brew-cask
-
+  if brew list -1 | grep -q "^brew-cask$"; then
+    fancy_echo "Package 'brew-cask' is installed"
+  else
+    brew install caskroom/cask/brew-cask
+  fi

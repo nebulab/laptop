@@ -1,6 +1,6 @@
 fancy_echo "Creating ~/.rbenv/default-gems, to automatically install default gems every time you install a new version of ruby ..."
   touch ~/.rbenv/default-gems
-  for gem in bundler pulsar; do
+  for gem in bundler pulsar invoker; do
     if ! grep -Fxq "$gem" ~/.rbenv/default-gems; then
       echo "$gem" >> ~/.rbenv/default-gems
     fi

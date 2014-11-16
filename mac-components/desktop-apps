@@ -7,20 +7,11 @@ fancy_echo "Installing Chrome ..."
 fancy_echo "Installing Firefox ..."
   brew cask install firefox
 
-fancy_echo "Installig f.lux, to dim your display based on day/night hours ..."
-  brew cask install flux
-
-fancy_echo "Installing Magican, to keep your Mac clean ..."
-  brew cask install magican
-
 fancy_echo "Installing Skype, to talk to the world ..."
   brew cask install skype
 
 fancy_echo "Installing Google Hangouts, to talk to your friends ..."
   brew cask install google-hangouts
-
-fancy_echo "Installing Transmission, a bittorrent client ..."
-  brew cask install transmission
 
 fancy_echo "Installing The Unarchiver, a tool to extrac files ..."
   brew cask install the-unarchiver
@@ -28,11 +19,5 @@ fancy_echo "Installing The Unarchiver, a tool to extrac files ..."
 fancy_echo "Installing iTerm2, one of the best terminal emulators for Mac ..."
   brew cask install iterm2
 
-fancy_echo "Installing HipChat, a chat client ..."
-  brew cask install hipchat
-
-fancy_echo "Installing Dropbox, to have your files always in the cloud ..."
-  brew cask install dropbox
-
-fancy_echo "Installing Google Drive, a Dropbox clone ..."
-  brew cask install google-drive
+fancy_echo "Installing Slack, a chat client ..."
+  brew cask install slack
